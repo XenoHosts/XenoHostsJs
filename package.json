@@ -1,0 +1,16 @@
+{
+  "name": "xenohostsjs",
+  "version": "1.0.0",
+  "description": "XenoHosts API Wrapper for NodeJs",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "type": "module",
+  "author": "XenoHosts, ErikPDev",
+  "license": "MIT",
+  "dependencies": {
+    "ws": "^8.8.1"
+  }
+}
+  
