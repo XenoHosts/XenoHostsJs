@@ -1,5 +1,5 @@
-const iClient = require('./internalClient/iClient.js');
-const account = require('./internalClient/account.js');
+const iClient = require('./internalClient/iClient');
+const account = require('./internalClient/account');
 
 module.exports = class XenoHostsClient {
 

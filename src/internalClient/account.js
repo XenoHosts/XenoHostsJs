@@ -1,5 +1,5 @@
-const iClient = require('./internalClient/iClient.js');
-const packet = require('./packet.js');
+const iClient = require('./iClient');
+const packet = require('./packet');
 
 module.exports = class {
 
