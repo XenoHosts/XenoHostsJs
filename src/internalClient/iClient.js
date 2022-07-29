@@ -1,4 +1,4 @@
-const packetTemplate = require('./packet.js');
+const packetTemplate = require('./packet');
 const WebSocket = require('ws');
 const {Buffer} = require('node:buffer');
 const CryptoJs = require('crypto-js');
