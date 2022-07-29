@@ -1,7 +1,7 @@
-import iClient from './internalClient/iClient.js';
-import account from "./internalClient/account.js";
+const iClient = require('./internalClient/iClient.js');
+const account = require('./internalClient/account.js');
 
-export class XenoHostsClient {
+module.exports = class XenoHostsClient {
 
     #_internalClient;
 

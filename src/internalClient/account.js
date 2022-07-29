@@ -1,7 +1,7 @@
-import iClient from "./iClient.js";
-import packet from "./packet.js"
+const iClient = require('./internalClient/iClient.js');
+const packet = require('./packet.js');
 
-export default class {
+module.exports = class {
 
     /**
      * @var {iClient}
