@@ -4,6 +4,7 @@ const account = require('./internalClient/account');
 module.exports = class XenoHostsClient {
 
     #_internalClient;
+    #_account;
 
     /**
      * Construct the client to make API requests
@@ -20,9 +21,16 @@ module.exports = class XenoHostsClient {
             }
         );
 
-        this.account = new account(this.#_internalClient);
+        this.#_account = new account(this.#_internalClient);
     };
 
+    /**
+     * Self-explanatory?
+     * @return {account}
+     */
+    get account(){
+        return this.#_account;
+    }
     set onClose(callback) {
         this.#_internalClient.onclose = callback
     }
