@@ -1,7 +1,7 @@
-import packetTemplate from './packet.js';
-import WebSocket from 'ws';
-import {Buffer} from 'node:buffer';
-import CryptoJs from 'crypto-js';
+const packetTemplate = require('./packet.js');
+const WebSocket = require('ws');
+const {Buffer} = require('node:buffer');
+const CryptoJs = require('crypto-js');
 
 let encryption_key = "This value is overridden instantly";
 
@@ -23,7 +23,7 @@ function decryptPacket(rawData, key) {
 
 let eventCallbacks = {};
 
-export default class {
+module.exports = class {
 
     #_ws;
     #_data = {

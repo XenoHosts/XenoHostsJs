@@ -6,7 +6,6 @@
   "scripts": {
     "test": "node src/index.js"
   },
-  "type": "module",
   "author": "XenoHosts, ErikPDev",
   "license": "MIT",
   "dependencies": {
