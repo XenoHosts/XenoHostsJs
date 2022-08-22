@@ -81,6 +81,10 @@ module.exports = class {
         const packet = new packetTemplate(rawPacket["eventId"], rawPacket["packet"]["type"], rawPacket["packet"]["data"]);
         if (packet.eventId === 0)
             throw new Error(packet.getValue("message"));
+
+        if (eventCallbacks[packet.eventId] === undefined)
+            throw new Error("Server Error,"+packet.getValue("message"))
+
         eventCallbacks[packet.eventId]["resolve"](packet);
         delete eventCallbacks[packet.eventId];
 

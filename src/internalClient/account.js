@@ -1,7 +1,7 @@
 const iClient = require('./iClient');
 const packet = require('./packet');
 
-module.exports = class {
+module.exports.account = class {
 
     /**
      * @var {iClient}
@@ -68,13 +68,13 @@ module.exports = class {
         if (!key instanceof String)
             throw new TypeError("key must be type-of String");
 
-        const createUserPacket = new packet(0, "verifyUser",
+        const rpacket = new packet(0, "verifyUser",
             {
                 "key": key
             }
         );
 
-        return (await this.#internalClient.send(createUserPacket)).data;
+        return (await this.#internalClient.send(rpacket)).data;
     }
 
 }
