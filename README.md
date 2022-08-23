@@ -12,7 +12,7 @@ npm install
 ## Example Usage:
 
 ```javascript
-import { XenoHostsClient } from "./XenoHostsJs/src/index.js"; // Folder import
+import { XenoHostsClient } from "xenohostsjs";
 
 
 setTimeout(async () => {
