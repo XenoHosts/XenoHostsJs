@@ -1,5 +1,5 @@
 # XenoHostsJS
-XenoHostsJS is a Nodde.Js wrapper which interfaces with the XenoHosts API Server.
+XenoHostsJS is a Node.Js wrapper which interfaces with the XenoHosts API Server.
 
 
 ## Installation
