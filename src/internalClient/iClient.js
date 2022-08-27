@@ -3,7 +3,7 @@ const WebSocket = require('ws');
 const {Buffer} = require('node:buffer');
 const CryptoJs = require('crypto-js');
 
-let encryption_key = "This value is overridden instantly";
+let encryption_key;
 
 function decryptPacket(rawData, key) {
 
