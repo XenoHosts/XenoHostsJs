@@ -3,7 +3,9 @@ if (!global.WebSocket)
     global.WebSocket = require('ws');
 const {Buffer} = require('buffer');
 const CryptoJs = require('crypto-js');
-let encryption_key = "This value is overridden instantly";
+
+let encryption_key;
+
 
 function decryptPacket(rawData, key) {
 
