@@ -1,9 +1,11 @@
 const packetTemplate = require('./packet');
-const WebSocket = require('ws');
-const {Buffer} = require('node:buffer');
+if (!global.WebSocket)
+    global.WebSocket = require('ws');
+const {Buffer} = require('buffer');
 const CryptoJs = require('crypto-js');
 
 let encryption_key;
+
 
 function decryptPacket(rawData, key) {
 
@@ -33,9 +35,9 @@ module.exports = class {
 
     constructor(onConnect = () => {
     }) {
-        this.#_ws = new WebSocket("ws://127.0.0.1:9999");
-        this.#_ws.on("open", onConnect);
-        this.#_ws.on("message", this.#receive);
+        this.#_ws = new WebSocket("ws://localhost:4444");
+        this.#_ws.addEventListener("open", onConnect);
+        this.#_ws.addEventListener("message", this.receive)
     }
 
     set onClose(callback) {
@@ -71,11 +73,12 @@ module.exports = class {
 
     /**
      * ## INTERNAL USE ONLY!
-     * @param {WebSocket.RawData} rawData
+     * @param {MessageEvent} rawData
      * @param {boolean} isBinary
      */
-    #receive(rawData, isBinary) {
-
+    receive(rawData, isBinary) {
+        
+        rawData = rawData.data;
         let rawPacket = decryptPacket(rawData, encryption_key);
         rawPacket = JSON.parse(rawPacket);
         const packet = new packetTemplate(rawPacket["eventId"], rawPacket["packet"]["type"], rawPacket["packet"]["data"]);

@@ -84,4 +84,19 @@ module.exports.server = class {
 
         return (await this.#internalClient.send(rpacket)).data;
     }
+
+
+    /**
+     * Screenshot the machine (VM ONLY)
+     * @param {string} serverId
+     * @returns {Promise<{"screenshotData": string}>}
+     */
+    async screenshot(serverId) {
+        if (serverId instanceof String)
+            throw new TypeError("serverId must be type-of String");
+
+        const rpacket = new packet(0, "screenshot", {"serverId": serverId})
+
+        return (await this.#internalClient.send(rpacket)).data;
+    }
 }
