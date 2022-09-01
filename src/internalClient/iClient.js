@@ -33,11 +33,9 @@ module.exports = class {
 
     constructor(onConnect = () => {
     }) {
-        this.#_ws = new WebSocket("ws://127.0.0.1:9999");
+        this.#_ws = new WebSocket("ws://localhost:4444");
         this.#_ws.addEventListener("open", onConnect);
         this.#_ws.addEventListener("message", this.receive)
-        // this.#_ws.on("open", onConnect);
-        // this.#_ws.on("message", this.receive);
     }
 
     set onClose(callback) {
